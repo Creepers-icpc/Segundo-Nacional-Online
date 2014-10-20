@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,m,c=0;
+    cin>>n>>m;
+    char mm[n][m];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            cin>>mm[i][j];
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if(mm[i][j]=='*')
+            {
+                c++;
+            }
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if((mm[i][j]=='*'&&mm[i][j+1]=='*')or(mm[i][j]=='*'&&mm[i+1][j+1]=='*')or(mm[i][j]=='*'&&mm[i-1][j-1]=='*')or(mm[i][j]=='*'&&mm[i+1][j-1]=='*')or(mm[i][j]=='*'&&mm[i-1][j+1]=='*')or(mm[i][j]=='*'&&mm[i-1][j]=='*')or(mm[i][j]=='*'&&mm[i+1][j]=='*')or(mm[i][j]=='*'&&mm[i][j-1]=='*'))
+            {
+                c--;
+            }
+        }
+    }
+    cout<<c<<endl;
+    return 0;
+}
